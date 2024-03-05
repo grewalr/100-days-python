@@ -16,7 +16,7 @@
 
 import pandas
 
-data = pandas.read_csv("weather_data.csv")
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 
 # temp_list = data["temp"].to_list()
 #
@@ -28,9 +28,17 @@ data = pandas.read_csv("weather_data.csv")
 # print(data[data["temp"] == data["temp"].max()])
 
 
-monday = data[data.day == "Monday"]
-celcius = monday.temp
-farenheit = (celcius * 9/5) + 32
-print(farenheit)
+# monday = data[data.day == "Monday"]
+# celcius = monday.temp
+# farenheit = (celcius * 9/5) + 32
+# print(farenheit)
+
+# grouped_data = data.groupby("Primary Fur Color")['Primary Fur Color'].count().count
+
+grouped_data = data.groupby("Primary Fur Color")['Primary Fur Color'].count().reset_index(name="Count").to_csv("squirrel_count.csv")
+
+print(grouped_data)
+
+
 
 
